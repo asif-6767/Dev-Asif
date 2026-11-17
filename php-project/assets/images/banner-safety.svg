@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" fill="none">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1200" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#08090D"/>
+      <stop offset="60%" stop-color="#0C1921"/>
+      <stop offset="100%" stop-color="#0A1416"/>
+    </linearGradient>
+    <radialGradient id="orbSafe" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(890 250) rotate(90) scale(240 310)">
+      <stop offset="0%" stop-color="#00FF9D" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#00FF9D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="520" fill="url(#bg3)"/>
+  <rect width="1200" height="520" fill="url(#orbSafe)"/>
+  <path d="M880 110L995 158V252C995 326 946 388 880 415C814 388 765 326 765 252V158L880 110Z" fill="#141821" fill-opacity="0.92" stroke="#00FF9D" stroke-width="2"/>
+  <path d="M880 142L968 179V252C968 310 931 359 880 382C829 359 792 310 792 252V179L880 142Z" stroke="#00E5FF" stroke-opacity="0.45" stroke-width="1.5"/>
+  <path d="M845 258L869 282L918 228" stroke="#00FF9D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

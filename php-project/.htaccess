@@ -1,0 +1,29 @@
+# ASIF ISLAM Website — InfinityFree Apache Security & Routing Rules
+
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block direct access to sensitive folders and files
+    RewriteRule ^(config|database|backups|includes)/ - [F,L]
+    RewriteRule \.(sql|log|bak|ini|md)$ - [F,L]
+
+    # Route /admin cleanly to /admin/index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^admin/?$ admin/index.php [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Block direct access to dotfiles
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

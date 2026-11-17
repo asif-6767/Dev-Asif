@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" fill="none">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1200" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#08090D"/>
+      <stop offset="55%" stop-color="#101827"/>
+      <stop offset="100%" stop-color="#09131B"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(920 140) rotate(90) scale(260 360)">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(260 440) rotate(90) scale(220 300)">
+      <stop offset="0%" stop-color="#00FF9D" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#00FF9D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="520" fill="url(#bg1)"/>
+  <rect width="1200" height="520" fill="url(#orb1)"/>
+  <rect width="1200" height="520" fill="url(#orb2)"/>
+  <g opacity="0.14" stroke="#00E5FF" stroke-width="1">
+    <path d="M0 104H1200M0 208H1200M0 312H1200M0 416H1200"/>
+    <path d="M150 0V520M300 0V520M450 0V520M600 0V520M750 0V520M900 0V520M1050 0V520"/>
+  </g>
+  <rect x="660" y="90" width="440" height="310" rx="18" fill="#141821" fill-opacity="0.88" stroke="#00E5FF" stroke-opacity="0.38" stroke-width="1.5"/>
+  <circle cx="694" cy="120" r="5" fill="#FF5F56"/>
+  <circle cx="712" cy="120" r="5" fill="#FFBD2E"/>
+  <circle cx="730" cy="120" r="5" fill="#27C93F"/>
+  <line x1="660" y1="146" x2="1100" y2="146" stroke="#232B3A"/>
+  <rect x="692" y="176" width="180" height="14" rx="7" fill="#00E5FF" fill-opacity="0.7"/>
+  <rect x="692" y="206" width="320" height="10" rx="5" fill="#9299A8" fill-opacity="0.4"/>
+  <rect x="692" y="226" width="260" height="10" rx="5" fill="#9299A8" fill-opacity="0.28"/>
+  <rect x="692" y="264" width="175" height="96" rx="12" fill="#0D111A" stroke="#00FF9D" stroke-opacity="0.35"/>
+  <rect x="885" y="264" width="183" height="96" rx="12" fill="#0D111A" stroke="#8B5CF6" stroke-opacity="0.35"/>
+  <path d="M718 320L744 294L766 314L804 282L836 312" stroke="#00FF9D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="910" y="294" width="130" height="10" rx="5" fill="#8B5CF6" fill-opacity="0.7"/>
+  <rect x="910" y="318" width="90" height="10" rx="5" fill="#F5F7FA" fill-opacity="0.35"/>
+</svg>

@@ -1,0 +1,284 @@
+/* ==========================================================================
+   ASIF ISLAM — 24-Effect Cyber-Tech Animation System
+   Lightweight CSS-first transitions + @property conic-gradient glowing borders
+   ========================================================================== */
+
+@property --a {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spinConic {
+  to { --a: 360deg; }
+}
+
+@keyframes spinOrbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes blinkCursor {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-9px); }
+}
+
+@keyframes orbDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, 28px) scale(1.08); }
+}
+
+@keyframes orbDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-36px, -24px) scale(1.1); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes aiPulseRing {
+  0% { transform: scale(0.95); opacity: 0.75; }
+  75%, 100% { transform: scale(1.38); opacity: 0; }
+}
+
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.45; }
+  40% { transform: translateY(-5px); opacity: 1; }
+}
+
+@keyframes msgFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes particleFloat {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.25; }
+  50% { transform: translateY(-28px) translateX(12px); opacity: 0.65; }
+}
+
+/* 22. Premium Loading Overlay */
+.site-loader {
+  position: fixed;
+  inset: 0;
+  background: #08090D;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+.site-loader.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-ring {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 229, 255, 0.16);
+  border-top-color: var(--accent);
+  border-right-color: var(--accent-2);
+  animation: spinOrbit 0.85s linear infinite;
+  display: grid;
+  place-items: center;
+}
+
+.loader-core {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.loader-brand {
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  letter-spacing: 0.22em;
+  color: var(--text-muted);
+}
+
+/* 1. Animated Logo Reveal */
+.brand-lockup {
+  animation: msgFadeIn 0.7s ease both;
+}
+
+/* 4. Gradient Text Animation */
+.gradient-text-anim {
+  background: linear-gradient(120deg, #F5F7FA 15%, var(--accent) 52%, var(--accent-2) 85%, #F5F7FA 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 9s ease infinite;
+}
+
+/* 5. Floating Profile Image */
+.floating-slow {
+  animation: floatSlow 5.5s ease-in-out infinite;
+}
+
+/* 6. Ambient Glowing Background Layer */
+.ambient-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ambient-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 25%, #000 35%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 25%, #000 35%, transparent 100%);
+}
+
+.bg-mode-minimal .ambient-grid {
+  opacity: 0.25;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(85px);
+  opacity: 0.22;
+}
+
+.orb-1 {
+  width: 440px;
+  height: 440px;
+  top: -120px;
+  left: -80px;
+  background: radial-gradient(circle, var(--accent), transparent 70%);
+  animation: orbDrift1 16s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  top: 35%;
+  right: -120px;
+  background: radial-gradient(circle, var(--accent-purple), transparent 70%);
+  animation: orbDrift2 19s ease-in-out infinite;
+}
+
+.orb-3 {
+  width: 360px;
+  height: 360px;
+  bottom: -100px;
+  left: 25%;
+  background: radial-gradient(circle, var(--accent-2), transparent 70%);
+  animation: orbDrift1 22s ease-in-out infinite reverse;
+}
+
+.ambient-particles span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: particleFloat 9s ease-in-out infinite;
+}
+
+.ambient-particles span:nth-child(1) { top: 18%; left: 12%; animation-delay: 0s; }
+.ambient-particles span:nth-child(2) { top: 34%; left: 82%; animation-delay: 1.8s; background: var(--accent-2); }
+.ambient-particles span:nth-child(3) { top: 62%; left: 22%; animation-delay: 3.1s; }
+.ambient-particles span:nth-child(4) { top: 76%; left: 74%; animation-delay: 4.5s; background: var(--accent-purple); }
+.ambient-particles span:nth-child(5) { top: 48%; left: 48%; animation-delay: 2.2s; }
+.ambient-particles span:nth-child(6) { top: 85%; left: 15%; animation-delay: 5.4s; background: var(--accent-2); }
+
+/* 7 & 8. Moving Conic-Gradient Glowing Border (Mask-Composite) */
+.glow-frame {
+  position: relative;
+}
+
+.border-conic-glow .glow-frame::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--a),
+    transparent 0deg,
+    transparent 240deg,
+    var(--accent) 295deg,
+    var(--accent-2) 330deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.45;
+  animation: spinConic 7s linear infinite;
+  transition: opacity 0.3s ease;
+}
+
+.border-conic-glow .glow-frame:hover::after {
+  opacity: 0.92;
+}
+
+.border-static-subtle .glow-frame::after {
+  display: none;
+}
+
+/* Glow Intensity Presets (Admin configurable) */
+.glow-low .ambient-orb { opacity: 0.1; }
+.glow-low.border-conic-glow .glow-frame::after { opacity: 0.25; }
+.glow-high .ambient-orb { opacity: 0.32; }
+.glow-high.border-conic-glow .glow-frame::after { opacity: 0.65; }
+
+/* Animation Intensity Presets */
+.anim-subtle .floating-slow { animation-duration: 9s; }
+.anim-subtle .ambient-particles { display: none; }
+
+/* 13. Scroll Reveal Animation */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 11. Subtle 3D Tilt */
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
